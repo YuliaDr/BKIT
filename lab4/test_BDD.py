@@ -10,7 +10,7 @@ def test_roots():
 def give_roots(a, b, c):
     return get_roots(a, b, c)
 
-@then('I get {roots} roots')
-def get_result(roots, res):
-    roots = list(map(int, roots.split()))
+@then(parsers.parse('I get {roots} roots'))
+def get_result(res, roots):
+    roots = list(map(float, roots.split(", ")))
     assert res == roots
